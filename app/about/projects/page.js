@@ -4,9 +4,11 @@ import ProjectListLoading from "./components/project-list-loading";
 import { ErrorBoundary } from "react-error-boundary";
 import H1 from "@/components/h1";
 
+export const runtime = "edge";
+
 export const metadata = {
-  title: 'Projects'
-}
+  title: "Projects",
+};
 
 export default async function ProjectsPage() {
   return (
@@ -20,5 +22,5 @@ export default async function ProjectsPage() {
         </Suspense>
       </ErrorBoundary>
     </div>
-  )
+  );
 }
