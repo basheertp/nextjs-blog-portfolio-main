@@ -1,16 +1,16 @@
-'use client' // Error components must be Client Components
+"use client"; // Error components must be Client Components
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { startTransition } from 'react'
-
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { startTransition } from "react";
+export const runtime = "edge";
 export default function Error({ error, reset }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error)
-  }, [error])
+    console.error(error);
+  }, [error]);
 
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div>
@@ -20,14 +20,14 @@ export default function Error({ error, reset }) {
           // Attempt to recover by trying to re-render the segment
           () => {
             startTransition(() => {
-              router.refresh()
-              reset()
-            })
+              router.refresh();
+              reset();
+            });
           }
         }
       >
         Try again
       </button>
     </div>
-  )
+  );
 }
